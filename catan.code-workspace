@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "./src"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+		  "**/.git": true,
+		  "**/.svn": true,
+		  "**/.hg": true,
+		  "**/CVS": true,
+		  "**/.DS_Store": true,
+	
+		  "**/*.csproj.user": true,
+		  "**/.vs/": true,
+		  "**/bin/": true,
+		  "**/node_modules/": true,
+		  "**/obj/": true,
+		  "**/.expo*/": true
+		},
+	  }
+}
