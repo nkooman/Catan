@@ -10,6 +10,7 @@
 - [ ] Implement robber.
 - [ ] Implement building.
 - [ ] Implement development cards.
+- [ ] Implement "Longest Road" mechanic.
 - [ ] Implement win condition.
 - [ ] Implement multiplayer interaction through SignalR.
 - [ ] Create UI.
