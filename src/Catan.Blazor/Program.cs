@@ -1,11 +1,9 @@
+using Catan.Services;
+using Catan.Services.Abstractions;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Catan.Blazor
@@ -18,6 +16,7 @@ namespace Catan.Blazor
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddSingleton<IGameStateService, GameStateService>();
 
             await builder.Build().RunAsync();
         }

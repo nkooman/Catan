@@ -4,13 +4,18 @@
 - [ ] Implement graph to keep track of Settlements and Roads.
 - [ ] Implement graph to keep track of terrain hexes.
 - [ ] Implement turn order.
+- [ ] Implement setup phase.
 - [ ] Implement resource production.
 - [ ] Implement domestic trade.
 - [ ] Implement maritime trade.
+- [ ] Implement maritime trade via harbors with settlements.
 - [ ] Implement robber.
 - [ ] Implement building.
-- [ ] Implement development cards.
+- [ ] Implement knight cards.
+- [ ] Implement progress cards.
+- [ ] Implement victory point cards.
+- [ ] Implement victory point win condition.
 - [ ] Implement "Longest Road" mechanic.
-- [ ] Implement win condition.
 - [ ] Implement multiplayer interaction through SignalR.
+- [ ] Create constants for game elements.
 - [ ] Create UI.

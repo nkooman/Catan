@@ -1,7 +1,47 @@
 ﻿@page "/"
+@inject IGameStateService GameStateService
 
-<h1>Hello, world!</h1>
+<h1>Catan</h1>
 
-Welcome to your new app.
+<p>@gameState</p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<button @onclick="@createDefaultGameState">Create Default Game State</button>
+
+<h2>Graph</h2>
+<p>Vertices: @gameState.MapAdjacencyGraph.Vertices.Count()</p>
+<p>Edges: @gameState.MapAdjacencyGraph.Edges.Count()</p>
+
+<h2>Hexagons</h2>
+<p>Hexagons: @gameState.Hexagons.Count()</p>
+@foreach (Hexagon hexagon in gameState.Hexagons)
+{
+    <p>Hexagon: @hexagon.ToString()</p>
+}
+
+
+@* <p>@gameState.MapAdjacencyGraph.ToString()</p> *@
+
+@code
+{
+    [Inject]
+    private IGameStateService gameStateService { get; set; }
+    private GameState gameState { get; set; }
+    private string title { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        gameState = gameStateService.InitializeGameState();
+        await base.OnInitializedAsync();
+    }
+
+    protected override void OnAfterRender(bool f)
+    {
+        base.OnAfterRender(false);
+    }
+
+    public Task createDefaultGameState()
+        => Task.Run(() =>
+        {
+            gameState.CreateDefaultGameState();
+        });
+}

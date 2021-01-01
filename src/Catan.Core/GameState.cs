@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 namespace Catan.Core
 {
-    class GameState
+    public class GameState
     {
-        public AdjacencyGraph<MapVertex, MapEdge> MapAdjacencyGraph { get; set; }
-        public Dictionary<string, Player> Players { get; set; }
+        public BidirectionalGraph<BoardVertex, BoardEdge> MapAdjacencyGraph { get; set; }
+        public IEnumerable<Hexagon> Hexagons { get; set; }
+        public IEnumerable<Harbor> Harbors { get; set; }
+        public IEnumerable<Player> Players { get; set; }
     }
 }

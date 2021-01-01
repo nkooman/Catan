@@ -1,8 +1,12 @@
-﻿namespace Catan.Core
+﻿using System.Collections.Generic;
+using Catan.Core.Constants;
+
+namespace Catan.Core
 {
-    class Player
+    public class Player
     {
-        public PlayerResources Resources { get; set; }
-        public PlayerStructures Structres { get; set; }
+        public string Name { get; set; }
+        public Dictionary<ResourceConstants, int> Resources { get; set; }
+        public Dictionary<StructureConstants, int> Structres { get; set; }
     }
 }
