@@ -4,7 +4,7 @@ using System;
 
 namespace Catan.Services
 {
-    public class Dice
+    public class DiceService
     {
         private Random Die = new Random();
 
