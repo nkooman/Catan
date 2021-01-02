@@ -34,14 +34,9 @@
         await base.OnInitializedAsync();
     }
 
-    protected override void OnAfterRender(bool f)
-    {
-        base.OnAfterRender(false);
-    }
-
     public Task createDefaultGameState()
         => Task.Run(() =>
         {
-            gameState.CreateDefaultGameState();
-        });
+        gameState.CreateDefaultGameState();
+    });
 }

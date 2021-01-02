@@ -1,8 +1,8 @@
 # TODO List
 
 - [x] Implement dice system.
-- [ ] Implement graph to keep track of Settlements and Roads.
-- [ ] Implement graph to keep track of terrain hexes.
+- [x] Implement graph to keep track of Settlements and Roads.
+- [x] Implement terrain hexes to be linked to the graph.
 - [ ] Implement turn order.
 - [ ] Implement setup phase.
 - [ ] Implement resource production.
@@ -17,5 +17,5 @@
 - [ ] Implement victory point win condition.
 - [ ] Implement "Longest Road" mechanic.
 - [ ] Implement multiplayer interaction through SignalR.
-- [ ] Create constants for game elements.
+- [x] Create constants for game elements.
 - [ ] Create UI.
