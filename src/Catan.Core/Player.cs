@@ -7,6 +7,6 @@ namespace Catan.Core
     {
         public string Name { get; set; }
         public Dictionary<ResourceConstants, int> Resources { get; set; }
-        public Dictionary<StructureConstants, int> Structres { get; set; }
+        public Dictionary<StructureConstants, int> Structures { get; set; }
     }
 }

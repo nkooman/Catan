@@ -43,7 +43,7 @@ namespace Catan.Services.Extensions
         public static GameState SetDefaultPlayerStructures(this GameState gameState)
         {
             gameState.Players.Select(player =>
-                player.Structres.Select(structure =>
+                player.Structures.Select(structure =>
                     DefaultPlayerStructureConstants.Structures[structure.Key]));
 
             return gameState;
