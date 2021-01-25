@@ -7,16 +7,11 @@ namespace Catan.Services
 {
     public class StructureService
     {
-        private readonly IEconomyService economyService;
-        public StructureService(IEconomyService economyService)
-        {
-            this.economyService = economyService;
-        }
 
         public bool CreateRoad(ref Player player, ref BoardEdge edge, bool isStartupPhase)
         {
             if (edge.Type != EdgeTypeConstants.Empty) return false;
-            if (isStartupPhase != true && economyService.CanAffordCost(player, CostConstants.RoadResourceCost)) return false;
+            // if (isStartupPhase != true && economyService.CanAffordCost(player, CostConstants.RoadResourceCost)) return false;
             if (player.Structures[StructureConstants.Road] == 0) return false;
 
             edge.Type = EdgeTypeConstants.Road;
@@ -29,7 +24,7 @@ namespace Catan.Services
         public bool CreateSettlement(ref Player player, ref BoardVertex vertex, bool isStartupPhase)
         {
             if (vertex.Type != VertexTypeConstants.Empty) return false;
-            if (isStartupPhase != true && economyService.CanAffordCost(player, CostConstants.SettlementResourceCost)) return false;
+            // if (isStartupPhase != true && economyService.CanAffordCost(player, CostConstants.SettlementResourceCost)) return false;
             if (player.Structures[StructureConstants.Settlement] == 0) return false;
 
             //TODO: Add check to make sure there are no adjacent settlements.

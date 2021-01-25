@@ -16,10 +16,10 @@ namespace Catan.Services
         public GameState InitializeGameState()
             => new GameState()
             {
-                Harbors = new Harbor[] { },
+                AdjacencyGraph = new UndirectedGraph<BoardVertex, BoardEdge>(),
                 Hexagons = new Hexagon[] { },
+                Harbors = new Harbor[] { },
                 Players = new Player[] { },
-                MapAdjacencyGraph = new BidirectionalGraph<BoardVertex, BoardEdge>(false, 9999, 3),
             };
     }
 }
