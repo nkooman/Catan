@@ -8,8 +8,8 @@
 <button @onclick="@createDefaultGameState">Create Default Game State</button>
 
 <h2>Graph</h2>
-<p>Vertices: @gameState.MapAdjacencyGraph.Vertices.Count()</p>
-<p>Edges: @gameState.MapAdjacencyGraph.Edges.Count()</p>
+<p>Vertices: @gameState.AdjacencyGraph.Vertices.Count()</p>
+<p>Edges: @gameState.AdjacencyGraph.Edges.Count()</p>
 
 <h2>Hexagons</h2>
 <p>Hexagons: @gameState.Hexagons.Count()</p>
@@ -17,9 +17,6 @@
 {
     <p>Hexagon: @hexagon.ToString()</p>
 }
-
-
-@* <p>@gameState.MapAdjacencyGraph.ToString()</p> *@
 
 @code
 {

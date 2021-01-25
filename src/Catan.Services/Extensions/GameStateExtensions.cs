@@ -54,7 +54,7 @@ namespace Catan.Services.Extensions
 
         public static Tuple<Player, int> GetLongestRoad(this GameState gameState)
         {
-            var longestRoad = new Tuple<Player, int>(null, 0);
+            var playerWithLongestRoad = new Tuple<Player, int>(null, 0);
 
             foreach (Player player in gameState.Players)
             {
@@ -63,20 +63,20 @@ namespace Catan.Services.Extensions
                 var playerGraph = new UndirectedGraph<BoardVertex, BoardEdge>();
                 playerGraph.AddVerticesAndEdgeRange(playerOwnedEdges);
 
-                var endpoints = playerGraph.Edges.Where(potentialEndpoint =>
-                {
-                    var predicate = new Func<BoardEdge, bool>(edge => edge != potentialEndpoint);
-                    var sourceEdges = gameState.AdjacencyGraph.AdjacentEdges(potentialEndpoint.Source).Count(predicate);
-                    var targetEdges = gameState.AdjacencyGraph.AdjacentEdges(potentialEndpoint.Target).Count(predicate);
+                // Might need this for efficiency
+                // var endpoints = playerGraph.Edges.Where(potentialEndpoint =>
+                // {
+                //     var sourceDegree = playerGraph.AdjacentDegree(potentialEndpoint.Source);
+                //     var targetDegree = playerGraph.AdjacentDegree(potentialEndpoint.Target);
 
-                    return sourceEdges == 0 || targetEdges == 0;
-                });
+                //     return sourceDegree == 1 || targetDegree == 1;
+                // });
 
-                var edgesToCheck = endpoints.Count() > 0 ? endpoints : playerGraph.Edges;
+                // var edgesToCheck = endpoints.Count() > 0 ? endpoints : playerGraph.Edges;
 
                 var longestPath = 0;
 
-                foreach (BoardEdge edge in edgesToCheck)
+                foreach (BoardEdge edge in playerGraph.Edges)
                 {
                     var longestPathFromEndpoint = playerGraph.LongestPathDepthFirstSearch(player, edge);
 
@@ -86,14 +86,14 @@ namespace Catan.Services.Extensions
                     }
                 }
 
-                if (longestPath >= 5 && (longestRoad.Item1 == null || longestRoad.Item2 < longestPath))
+                if (longestPath >= 5 && (playerWithLongestRoad.Item1 == null || playerWithLongestRoad.Item2 < longestPath))
                 {
-                    longestRoad = Tuple.Create(player, longestPath);
+                    playerWithLongestRoad = Tuple.Create(player, longestPath);
                 }
 
             }
 
-            return longestRoad;
+            return playerWithLongestRoad;
         }
 
         private static int LongestPathDepthFirstSearch(this UndirectedGraph<BoardVertex, BoardEdge> graph, Player player, BoardEdge edge)
