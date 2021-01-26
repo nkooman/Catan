@@ -8,4 +8,10 @@
     <PackageReference Include="QuikGraph" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="HexagonalLib.Net">
+      <HintPath>..\..\lib\HexagonalLib\src\.bin\HexagonalLib.Net\Debug\netcoreapp3.1\HexagonalLib.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

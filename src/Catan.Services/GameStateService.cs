@@ -1,6 +1,7 @@
+using HexagonalLib;
+using QuikGraph;
 using Catan.Core;
 using Catan.Services.Abstractions;
-using QuikGraph;
 
 namespace Catan.Services
 {
@@ -17,6 +18,7 @@ namespace Catan.Services
             => new GameState()
             {
                 AdjacencyGraph = new UndirectedGraph<BoardVertex, BoardEdge>(),
+                Grid = new HexagonalGrid(HexagonalGridType.PointyEven, 1.0f),
                 Hexagons = new Hexagon[] { },
                 Harbors = new Harbor[] { },
                 Players = new Player[] { },
